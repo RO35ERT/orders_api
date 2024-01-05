@@ -17,8 +17,7 @@ type DbInstance struct{
 var Database DbInstance
 
 func DOnnectDb(){
-	
-	dsn := os.Getenv("DB_USER")+":"+os.Getenv("DB_PASS")+"@tcp(127.0.0.1:3306)/order_api?charset=utf8mb4&parseTime=True&loc=Local"
+	dsn := "root:tumbwerobert@tcp(127.0.0.1:3306)/order_api?charset=utf8mb4&parseTime=True&loc=Local"
 	db,err := gorm.Open(mysql.Open(dsn),&gorm.Config{})
 
 	if err != nil{
