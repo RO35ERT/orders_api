@@ -4,6 +4,7 @@ import (
 	"log"
 	"os"
 
+	"github.com/ro35ert/orders_api/models"
 	"gorm.io/driver/mysql"
 	"gorm.io/gorm"
 	"gorm.io/gorm/logger"
@@ -27,5 +28,9 @@ func DOnnectDb(){
 
 	db.Logger = logger.Default.LogMode(logger.Info)
 
+	//TO Do: Migrations
+	db.AutoMigrate(&models.User{},&models.Product{},&models.Order{})
+
+	Database = DbInstance{Db: db}
 	
 }
